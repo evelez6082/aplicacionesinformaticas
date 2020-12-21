@@ -1,0 +1,172 @@
+.bootstrap-notify-container{
+  z-index: 1050;  
+  max-width: 320px;
+  background-color: #000;
+  color: #fff;
+  transition: all 0.5s ease-in-out 0s;
+  font-size: 14px;
+}
+.bootstrap-notify-container > .close{
+  top: -9px !important;
+  right: -9px !important;
+}
+.bootstrap-notify-container > .close:hover,.bootstrap-notify-container > .close:focus {
+  color: #fff !important;
+  outline: 0;
+}
+
+/*Notificacion de errores y cosas bien hechas*/
+
+
+.errorMensaje, .correctoMensaje{
+    text-align: center;
+    background: #f2dede;
+    color: #a94442;
+    padding: 1em;
+    transition: all 0.8s;
+    margin-bottom: 0.5em;
+} 
+
+ h1 h2 h3 {
+       font-weight: 0;
+       background: red; 
+}
+
+.mensajeNoEncontrado{
+    margin-top: 4em;
+}
+
+ .correctoMensaje{
+   background: #d4edda;
+   color: #155724;;
+} 
+
+.errorForm{
+    color: red;
+}
+
+.error404{
+    text-align: center;
+}
+
+.error404 h1{ 
+    
+    font-size:5rem;
+    text-shadow:4px 4px 1px #ab9d9d;
+}
+
+.contenedorMensaje{ 
+    text-align: center;
+    text-shadow:4px 4px 1px #0606061a;
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+ .boton_iniciar_sesion{
+    display: none;
+}
+
+.contenedorFoto .img-thumbnail{
+    max-width: 100%; 
+    height: 150px; 
+    width: 150px;
+}
+
+.contenedorFoto .text-muted{
+    margin-bottom: 0.5rem;
+} 
+
+.contenedorFoto{
+    display: flex;
+}
+
+.contenedorFoto > a{
+    align-self: flex-end;
+    padding-left: 10px;
+}
+
+.errorImagen{
+  border: 2.5px solid red;   
+}
+
+/*******CONTENEDOR CARGA************/
+
+.contenedorCarga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorSpiner{
+/*    margin-top: 3.5em;*/
+    width: 5.5em;
+}
+
+/*****FLECHA*****/
+
+#scrollUp{
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url("../../lector/imagenes/flecha.jpg");
+}
+
+/**********ESTILOS RAMDONS************/
+
+  .thumbnail {
+    display: inline-block;
+    width: 120px;
+    height: 160px;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  .fullscreen {
+    background-color: #333;
+  }
+  .fb3d-modal.visible{
+    z-index: 10000;
+  }
+  .form-label{
+    margin-bottom: 0px;
+  }
+  .bootstrap-select{
+    margin-left: -7px !important;
+    width: 102% !important;
+    margin-bottom: 17px !important;
+  }
+  .dropdown-menu.show{
+    min-width: 100% !important;
+  }
+
+ div.light-theme .current{
+    background: #c00;
+    /*line-height: 2em;*/
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+#seccion_fecha_especifica{
+    margin-top: 0.5em;
+}
+
+#btn_buscar_principal:hover{
+    cursor: pointer;
+}
+
+/*
+.mostrar_foto_personaje{
+    display:none;
+}
+*/
+
+.ocultadDocumento{
+  display: none;
+}
+

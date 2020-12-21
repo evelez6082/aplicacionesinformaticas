@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Ice cream
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="./assets/css/material-kit.css?v=2.0.6" rel="stylesheet" />
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link href="./assets/css/adicional.css" rel="stylesheet" />
+  <link href="./assets/plugins/snackbar-master/dist/snackbar.min.css" rel="stylesheet" />
+  <link href="./assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+  <link href="./assets/css/estilosGlobales.css" rel="stylesheet" />
+
+</head>
+
+<body class="index-page sidebar-collapse">
+  <nav class="navbar  bg-white   fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="#">
+          ICE CREAM </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link inicio" href="inicio" onclick="scrollToDownload()">
+              <i class="material-icons">dashboard</i> Inicio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link ventas" href="ventas" onclick="scrollToDownload()">
+              <i class="material-icons">shopping_cart</i> Ventas
+            </a>
+          </li>
+          <?php if($_SESSION['rol_ice'] === 'ADMINISTRADOR' || $_SESSION['rol_ice'] === 'SUPER USUARIO'){ ?>
+          <li class="dropdown nav-item">
+            <a href="#" class="dropdown-toggle nav-link configuraciones" data-toggle="dropdown">
+              <i class="material-icons">settings_applications</i> Configuraciones
+            </a>
+            <div class="dropdown-menu dropdown-with-icons">
+              <a href="productos" class="dropdown-item productos">
+                <i class="material-icons">assignment_turned_in</i> Productos
+              </a>
+              <a href="clientes" class="dropdown-item clientes">
+                <i class="material-icons">group</i> Clientes
+              </a>
+              <a href="tamanos" class="dropdown-item tamanos">
+                <i class="material-icons">eco</i> Tamaños helados
+              </a>
+              <a href="usuarios" class="dropdown-item usuarios">
+                <i class="material-icons">person</i> Usuarios
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link reportes" href="reportes">
+              <i class="material-icons">bar_chart</i> Reportes
+            </a>
+          </li>
+          <?php }else{ ?>
+            <li class="dropdown nav-item">
+              <a href="#" class="dropdown-toggle nav-link configuraciones" data-toggle="dropdown">
+                <i class="material-icons">settings_applications</i> Configuraciones
+              </a>
+              <div class="dropdown-menu dropdown-with-icons">
+                <a href="clientes" class="dropdown-item clientes">
+                  <i class="material-icons">group</i> Clientes
+                </a>
+              </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link reportes" href="reportes">
+              <i class="material-icons">bar_chart</i> Reportes
+            </a>
+          </li>
+          <?php } ?>
+          
+           <li class="dropdown nav-item">
+              <a href="#pablo" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+                <div class="profile-photo-small">
+                  <i class="material-icons" style="position: absolute;margin-top: -3px;font-size: 40px;">account_circle</i>
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <h6 class="dropdown-header"><?php echo isset($_SESSION['nombres_usuario_ice'])?$_SESSION['nombres_usuario_ice']:''; ?></h6>
+                <a href="salir" class="dropdown-item">Cerrar sesión</a>
+              </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>

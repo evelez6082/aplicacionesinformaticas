@@ -1,0 +1,111 @@
+INICIAR SERVICIO DE POSTGRESQL DESDE WINDOWS PARA CONECTARSE REMOTAMENTE:
+	C:\Archivos de programa\Postgresql\10\bin>pg_ctl.exe -D "C:\Program Files\PostgreSQL\10\data" restart
+
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName icecream.cacicustech.com
+    DocumentRoot /var/www/html/ice-cream
+
+    <Directory /var/www/html/ice-cream/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+    </IfModule>
+
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName santaana.cacicustech.com
+    DocumentRoot /var/www/html/wordpress
+
+    <Directory /var/www/html/wordpress/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+    </IfModule>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName colegios.cacicustech.com
+    DocumentRoot /var/www/html/colegios
+
+    <Directory /var/www/html/colegios/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+    </IfModule>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName archivos.cacicustech.com
+    DocumentRoot /var/www/html/archivos_ca
+
+    <Directory /var/www/html/archivos_ca/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    <IfModule mod_dir.c>
+        DirectoryIndex index.php index.pl index.cgi index.html index.xhtml index.htm
+    </IfModule>
+</VirtualHost>
+
+
+define('AUTH_KEY',         '_ ,pL,n`%m,cFyag0+=AN>%Ys%up>]N &07f4V`&S+fv6+%r}=-wF->t0h2!Av]0');
+define('SECURE_AUTH_KEY',  'eAWv>tX+ ;~;-X|`URLAX):fvz<@J4%0OMKuE?>{+5LIkVO4k#;c#0myN@ ?~>>0');
+define('LOGGED_IN_KEY',    '#Kd+fSR.+-U*,}6#>uq+OYVT|c6N`>1^|X`! ;m(PoIL!&$,}k5Y,|YjDI-J&Ctk');
+define('NONCE_KEY',        '/JQ@+T)=tz>kNV*:[%LIVZgj=W0/HJ$pq#qB$+q [dm=IYs<+>:C> m%CPgr[%uW');
+define('AUTH_SALT',        'NLD[_azSn`z<S:J35Z#[XYl@G]5Ig;{KU`XCla%1?{q{O&Vyhu[| 0)W:4i:Zv91');
+define('SECURE_AUTH_SALT', 'MxsPT-/:Q,,2]0rXz}LDldw|5PxmdrLW^+f-w&loi~-pzI&.yc1?- ;G_-#~TBXR');
+define('LOGGED_IN_SALT',   '$D0[S/AG-s&Rsn|pK+o</07xp-qysfLtY&U.-jyM)I8{08g:tTuarXmMV!Luz`DH');
+define('NONCE_SALT',       'ug<@QH$s5?RK9Cm.jI].XP4;$yKDQ*iO-%=(-o81T+8wcq(.fV[~{rz BU3^jL<P');
+
+
+WORDPRESS:
+
+    usuario: santaana
+    contraseña: SantaAna.2020
+
+
+SQL:
+    usuario: wordpressuser
+    contraseña: password
+
+
+PARA HACER RESPALDOS SQL
+RESPALDAR: pg_dump -h localhost -p 5432 -U postgres -f "/var/www/html/respaldo_2019_03_07.backup" colegios
+RESTAURAR: psql -1 -U postgres -h localhost -d nueva_base < /var/www/html/respaldo_2019_03_07.backup
+
+RESTAURAR DESDE WINDOWS: psql -U postgres colegios < C:\wamp64\www\colegios\respaldo_2019_06_11.backup
+
+
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'ice-cream';

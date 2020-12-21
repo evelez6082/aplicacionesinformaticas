@@ -1,0 +1,105 @@
+@media (min-width: 1200px){
+  .modal-xl {
+    max-width: 1140px !important;
+  }
+}
+@media (min-width: 992px){
+  .modal-lg, .modal-xl {
+    max-width: 800px;
+  }
+}
+.outer-list{
+  z-index: 3 !important;
+  top: -9px !important;
+  position: sticky !important;
+  background: #6e1e8f !important;
+  color: #fff !important;
+}
+.modal-content{
+  margin-top: -123px;
+}
+.desglosar_menu_tabla{
+  cursor: pointer;
+}
+.creado_modificado{
+  display: none;
+}
+.form-group{
+  margin-bottom: 13px;
+}
+input.form-control{
+  margin-top: -10px;
+}
+td > .dropdown > button{
+  margin: -7px -20px -7px -20px;
+}
+.oculto{
+  display: none;
+}
+.centro{
+  text-align: center;
+}
+.dataTables_processing{
+  width: 12%;
+  text-align: center;
+  top: 32px;
+  margin-bottom: -54px;
+  margin-left: 11px;
+  background: #e8e8e8;
+}
+.dataTables_empty{
+  text-align: center;
+}
+.dataTables_info{
+  float: left;
+}
+.dataTables_paginate{
+  float: right;
+}
+.dataTables_filter > label{
+  float: right;
+  width: 70%;
+}
+
+.dataTables_length > label{
+  float: left;
+  width: 20%;
+}
+.nav-link.active{
+  background: #e8e8e8;
+}
+.list-group-item:first-child {
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+.list-group-item{
+  position: relative;
+  display: block;
+  padding: .75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.125);
+  border-top-color: rgba(0, 0, 0, 0.125);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: rgba(0, 0, 0, 0.125);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0.125);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgba(0, 0, 0, 0.125);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+}
+.outer table th {
+  z-index: 1;
+  top: -1px;
+  position: sticky;
+  background-color: #eeeeee;
+}

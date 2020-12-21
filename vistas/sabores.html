@@ -1,0 +1,82 @@
+<div class="main main-raised" style="box-shadow: none;background: transparent;">
+  <div class="section section-basic" style="margin-top: 84px;">
+    <div class="container">
+      <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <i class="material-icons">eco</i> <span>Listado de sabores</span>
+              <!-- <button class="btn btn-primary pull-right actualizar-sabor" data-toggle="modal" data-target="#exampleModal" style="margin-bottom: -4px;margin-top: -4px;">Nuevo sabor</button> -->
+              <p class="m-b-0 pull-right"> 
+                <button  style="margin-top: -32px;margin-right: -22px;" class="btn btn-social btn-just-icon btn-round btn-google" data-toggle="modal" data-target="#ModalAddSabor">
+                    <i data-placement="left" title="Nuevo Sabor" data-toggle="tooltip" class="fa fa-plus"> </i>
+                  </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive" style="padding-top: 3px;">
+            <table class="table table-bordered tabla_sabores" id="tabla_sabores" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th style="text-align: center;">Estado</th>
+                  <th style="text-align: center;">Acción</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ModalAddSabor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="margin-top: -57px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><strong>Nuevo sabor</strong></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="return false">
+          <div class="form-group">
+            <label for="sabor">Nombre *</label>
+            <input type="text" id="nombre" name="nombre" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="observacion">Observación</label>
+            <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>
+          </div>
+          <div class="form-check">
+              <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="estado" name="estado" checked>
+                  Estado
+                  <span class="form-check-sign">
+                      <span class="check"></span>
+                  </span>
+              </label>
+          </div>
+          <div class="form-group creado_modificado">
+            <div class="col-md-12">
+              <small class="text-muted pull-right"><b>Modificado por última vez: </b><small class="modificado"></small></small><br>
+              <small class="text-muted pull-right"><b>Creado: </b><small class="creado"></small></small>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancelar_actualizar_sabor" style="margin-right: 10px;" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-primary actualizar_sabor">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="app/sabores.js"></script>
+<script type="text/javascript">
+  $('.configuraciones,.sabores').addClass('active')
+</script>

@@ -1,0 +1,199 @@
+<style type="text/css">
+  .btn.active, .open>.btn.dropdown-toggle, .show>.btn.dropdown-toggle, .btn.btn-default:active, .btn.btn-default.active, .open>.btn.btn-default.dropdown-toggle, .show>.btn.btn-default.dropdown-toggle {
+    color: #c9c9c9 !important;
+    background-color: transparent !important;
+  }
+  .bootstrap-select{
+    margin-top: -11px !important;
+  }
+  .filter-option-inner{
+    margin-left: -27px;
+  }
+  .bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #2196f3;
+  }
+</style>
+<div class="main main-raised" style="box-shadow: none;background: transparent;">
+  <div class="section section-basic" style="margin-top: 84px;">
+    <div class="container">
+      <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+          <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <span>Lista de usuarios</span>
+              <button class="btn btn-primary pull-right registrar_usuario" data-toggle="modal" data-target="#exampleModal" style="margin-top: -9px;margin-bottom: -11px;margin-right: -6px;">Nuevo usuario</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered tabla_usuarios" id="tabla_usuarios" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th></th>
+                <th>#</th>
+                <th>Cédula</th>
+                <th>Apellidos</th>
+                <th>Nombres</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title titulo_usuario" id="exampleModalLabel titulo_usuario"><b>Registrar Usuario</b></h5>
+          <button type="button" class="close cerrar_crear_usuario" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"> 
+          <form onsubmit="return false" autocomplete="off" id="FrmActualizarUsuario" class="FrmActualizarUsuario">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12"> 
+                <div class="form-group">
+                  <label for="cedula"><spam class="cedula_ alertaError">Cédula *</spam></label>
+                  <input type="text" id="cedula"  name="cedula" class="form-control campo enteros" maxlength='13' placeholder="Escriba la cédula y presione ENTER.">
+                </div>
+              </div>
+            </div>
+            <div class="datos_usuario_llenar">
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="apellidos"><spam class="apellidos_ alertaError">Apellidos *<spam></label>
+                  <input type="text" id="apellidos" name="apellidos" class="form-control campo">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="nombres"><spam class="nombres_ alertaError">Nombres *</spam></label>
+                  <input type="text" id="nombres" name="nombres" class="form-control campo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="correo"><spam class="correo_ alertaError">Correo *</spam></label>
+                  <input type="text" id="correo" name="correo" class="form-control campo">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="contrasena"><spam class="contrasena_ alertaError">Contraseña *</spam></label>
+                  <input type="password" id="contrasena" name="contrasena" class="form-control campo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="rol"><spam class="rol_ alertaError">Rol *</spam></label>
+                  <select class="selectpicker form-control campo" data-style="btn btn-link" id="rol" name="rol"></select>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="telefono"><spam class="telefono_ alertaError">Teléfono *</spam></label>
+                  <input type="number" id="telefono" name="telefono" class="form-control campo">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="provincia"><spam class="provincia_ alertaError">Provincia *</spam></label>
+                  <select class="selectpicker form-control campo" data-style="btn btn-link" id="provincia" name="provincia" data-live-search="true">
+                    <option value="0">Seleccionar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="canton"><spam class="canton_ alertaError">Cantón *</spam></label>
+                  <select class="selectpicker form-control campo" data-style="btn btn-link" id="canton" name="canton" data-live-search="true">
+                    <option value="0">Seleccionar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="parroquia"><spam class="parroquia_ alertaError">Parroquia *</spam></label>
+                  <select class="selectpicker form-control campo" data-style="btn btn-link" id="parroquia" name="parroquia" data-live-search="true">
+                    <option value="0">Seleccionar</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="direccion"><spam class="direccion_ alertaError">Dirección </spam></label>
+                  <input type="text" id="direccion" name="direccion" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <label for="observacion">Observación</label>
+                  <textarea class="form-control" id="observacion" name="observacion" rows="1"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" id="estado" name="estado" checked>
+                      Estado
+                      <span class="form-check-sign">
+                          <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="form-group creado_modificado pull-right" style="margin-bottom: 0px;">
+                  <small class="text-muted pull-right"><b>Modificado por última vez: </b><small class="modificado"></small></small><br>
+                  <small class="text-muted pull-right"><b>Creado: </b><small class="creado"></small></small>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancelar_actualizar_usuario" style="margin-right: 10px;" data-dismiss="modal">CANCELAR</button>
+          <div class="datos_usuario_llenar_btn_actualizar">
+            <button type="button" class="btn btn-primary actualizar_usuario">ACTUALIZAR</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<script type="module" src="app/usuarios.js"></script>
+<script type="text/javascript">
+  $('.configuraciones,.usuarios').addClass('active')
+</script>

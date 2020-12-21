@@ -1,0 +1,156 @@
+<link href="./assets/plugins/bootstrap-datetimepicker/build/jquery.datetimepicker.min.css" rel="stylesheet" />
+<style type="text/css">
+  .btn.active, .open>.btn.dropdown-toggle, .show>.btn.dropdown-toggle, .btn.btn-default:active, .btn.btn-default.active, .open>.btn.btn-default.dropdown-toggle, .show>.btn.btn-default.dropdown-toggle {
+    color: #c9c9c9 !important;
+    background-color: transparent !important;
+  }
+  .bootstrap-select{
+    margin-top: -11px !important;
+  }
+  .filter-option-inner{
+    margin-left: -27px;
+  }
+  .bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #2196f3;
+  }
+</style>
+<div class="main main-raised" style="box-shadow: none;background: transparent;">
+  <div class="section section-basic" style="margin-top: 84px;">
+    <div class="container">
+      <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+          <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <span>Generación de reportes</span>
+              <button class="btn btn-primary pull-right generar_reporte" style="margin-top: -9px;margin-bottom: -11px;margin-right: -6px;">Generar reporte</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="tipo_reporte"><span class="tipo_reporte_ alertaError">Tipo de reporte *<span></label>
+                <select id="tipo_reporte" name="tipo_reporte" data-style="btn btn-link" class="tipo_reporte campo selectpicker form-control">
+                  <option value="0">Seleccionar</option>
+                  <?php if($_SESSION['rol_ice'] === 'ADMINISTRADOR' || $_SESSION['rol_ice'] === 'SUPER USUARIO'){ ?>
+                    <option value="1">Reporte general de ventas</option>
+                    <option value="2">Reporte de ventas específicas</option>
+                  <?php }?>
+                    <option value="3">Reporte globalizado</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 reporte" style="display: none;">
+              <div class="form-group">
+                <label for="reporte"><span class="reporte_ alertaError">Reporte *<span></label>
+                <select id="reporte" name="reporte" data-style="btn btn-link" class="reporte campo selectpicker form-control">
+                  <option value="0">Seleccionar</option>
+                  <option value="1">Por tipo de producto</option>
+                  <option value="2">Por productos individuales</option>
+                  <option value="3">Por tamaño productos</option>
+                  <option value="4">Por productos más vendidos</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 tipos_productos" style="display: none;">
+              <div class="form-group">
+                <label for="tipo_producto"><span class="tipo_producto_ alertaError">Tipo de producto *<span></label>
+                <select id="tipo_producto" name="tipo_producto" data-style="btn btn-link" class="tipo_producto campo selectpicker form-control"></select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 _productos" style="display: none;">
+              <div class="form-group">
+                <label for="producto"><span class="producto_ alertaError">Producto *<span></label>
+                <select id="producto" name="producto" data-style="btn btn-link" class="producto campo selectpicker form-control" data-live-search="true"></select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 precios_ice_cream" style="display: none;">
+              <div class="form-group">
+                <label for="tamano_producto"><span class="tamano_producto_ alertaError">Tamaño producto *<span></label>
+                <select id="tamano_producto" name="tamano_producto" data-style="btn btn-link" class="tamano_producto campo selectpicker form-control" data-live-search="true"></select>
+              </div>
+            </div>
+          </div>
+          <div class="row fechas" style="display: none;">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="fechas"><span class="fechas_ alertaError">Fecha *<span></label>
+                <select id="fechas" name="fechas" data-style="btn btn-link" class="fechas campo selectpicker form-control">
+                  <option value="0">Seleccionar</option>
+                  <option value="1">Rango de fechas</option>
+                  <option value="2">Desde todos los tiempos</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 desde" style="display: none;">
+              <div class="form-group">
+                <label class="label-control" for="desde">Desde*</label>
+                <input type="text" class="form-control datetimepicker" id="desde" name="desde" data-format="dd/MM/yyyy hh:mm:ss"/>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 hasta" style="display: none;">
+              <div class="form-group">
+                <label class="label-control" for="hasta">Hasta*</label>
+                <input type="text" class="form-control datetimepicker" id="hasta" name="hasta"/>
+              </div>
+            </div>
+          </div>
+          <div class="row fechas" style="display: none;">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="agrupar"><span class="agrupar_ alertaError">Agrupar por: <span></label>
+                <select id="agrupar" name="agrupar" data-style="btn btn-link" class="agrupar campo selectpicker form-control">
+                  <option value="1">Minuto</option>
+                  <option value="2">Hora</option>
+                  <option value="3">Día</option>
+                  <option value="4">Semana</option>
+                  <option value="5">Mes</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal_mostrar_reportes" tabindex="-1" role="dialog" aria-labelledby="modal_mostrar_reportesLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal_mostrar_reportesLabel"><b>Reportes y estadísticas generales.</b></h5>
+        <button type="button" class="close cerrar_crear_precio" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="return false" autocomplete="off" id="FrmActualizarPrecio" class="FrmActualizarPrecio">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 mostrar_reportes">
+              
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" style="margin-right: 10px;" data-dismiss="modal">SALIR</button>
+        <button type="button" class="btn btn-success imprimir_reporte">IMPRIMIR</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="app/reportes.js"></script>
+<script type="module" src="app/imprimir.js"></script>
+<script src="assets/plugins/bootstrap-datetimepicker/build/jquery.datetimepicker.full.js"></script>
+<script src="assets/plugins/bootstrap-datetimepicker/build/jquery.datetimepicker.min.js"></script>
+<script src="assets/plugins/bootstrap-datetimepicker/datetimepicker.js"></script>
+<script type="text/javascript">
+  $('.reportes').addClass('active')
+</script>

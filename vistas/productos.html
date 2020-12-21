@@ -1,0 +1,173 @@
+<style>
+  .btn.active, .open>.btn.dropdown-toggle, .show>.btn.dropdown-toggle, .btn.btn-default:active, .btn.btn-default.active, .open>.btn.btn-default.dropdown-toggle, .show>.btn.btn-default.dropdown-toggle {
+    color: #c9c9c9 !important;
+    background-color: transparent !important;
+  }
+  .bootstrap-select{
+    margin-top: -11px !important;
+  }
+  .filter-option-inner{
+    margin-left: -27px;
+  }
+  .bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #2196f3;
+  }
+ </style>
+<div class="main main-raised" style="box-shadow: none;background: transparent;">
+  <div class="section section-basic" style="margin-top: 84px;">
+    <div class="container">
+      <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <span>Lista de Productos</span>
+              <button class="btn btn-primary pull-right registrarProducto" data-toggle="modal" data-target="#ActualizarProductos" style="margin-top: -9px;margin-bottom: -11px;margin-right: -6px;">Nuevo producto</button>
+              <!-- <p class="m-b-0 pull-right" style="margin-bottom: 0px;"> 
+                <button  style="margin-top: -32px;margin-right: -22px;" class="btn btn-social btn-just-icon btn-round btn-google" data-toggle="modal" data-target="#exampleModal">
+                 <i data-placement="left" title="Nuevo Producto" data-toggle="tooltip" class="fa fa-plus"> </i>
+                </button>
+              </p> -->
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered tabla_productos" id="tabla_productos" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th></th>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Tipo Producto</th>
+                <th>Costo</th>
+                <th>Precio</th>
+                <th>% Utilidad</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ActualizarProductos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title titulo_producto" id="exampleModalLabel titulo_producto"><strong>Registrar Producto</strong></h5>
+        <button type="button" class="close cerrar_modal_producto" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="return false" autocomplete="off" id="FrmActualizarProducto">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="tipo_producto"><span class="tipo_producto_ alertaError">Tipo de producto *<span></label>
+                <select id="tipo_producto" name="tipo_producto" data-style="btn btn-link" class="tipo_producto campo selectpicker form-control"></select>
+              </div>
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="nombre"><span class="nombre_ alertaError">Nombre *<span></label>
+                <input type="text" id="nombre" name="nombre" class=" campo form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row recomendado">
+            <div class="col-lg-4 ">
+              <div class="form-group">
+                <label for="sabor"><span class="sabor_ alertaError">Sabores *<span></label>
+                <select id="sabor" name="sabores" multiple data-style="btn btn-link" class="campo selectpicker form-control" data-live-search="true"></select>
+              </div>
+            </div>
+            <div class="col-lg-5 ">
+              <div class="form-group">
+                <label for="ingrediente"><span class="ingrediente_ alertaError">Ingredientes *<span></label>
+                <select id="ingrediente" name="ingredientes" multiple data-style="btn btn-link" class=" campo selectpicker form-control" data-live-search="true"></select>
+              </div>
+            </div>
+            <div class="col-lg-3 ">
+              <div class="form-group">
+                <label for="salsa"><span class="salsa_ alertaError">Salsas *<span></label>
+                <select id="salsa" name="salsas" multiple data-style="btn btn-link" class="campo selectpicker form-control" data-live-search="true"></select>
+              </div>
+            </div>
+          </div>
+          <div class="row personalizado">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+              <label for="categoria"><span class="categoria_ alertaError">Categoria *<span></label>
+               <select id="categoria" name="categoria" data-style="btn btn-link" class=" campo selectpicker form-control"></select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="costo"><span class="costo_ alertaError">Costo *<span></span></label>
+                <input type="number" min="0.00" max="10000.00" step="0.01" id="costo" name="costo" class="campo form-control">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="precio"><span class="precio_ alertaError">Precio *<span></span></label>
+                <input type="number" min="0.00" max="10000.00" step="0.01" id="precio" name="precio" class="campo form-control">
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="utilidad"><span class="utilidad_ alertaError">% Utilidad *<span></span></label>
+                <input type="text" min="0.00" max="10000.00" step="0.01" id="utilidad" name="utilidad" class="form-control" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="observacion">Observación</label>
+                <textarea class="form-control" id="observacion" name="observacion" rows="1"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input class="form-check-input" type="checkbox" id="estado" name="estado" checked>
+                   Estado
+                  <span class="form-check-sign">
+                    <span class="check"></span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>         
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group creado_modificado pull-right" style="margin-bottom: 0px;">
+                <small class="text-muted pull-right"><b>Modificado por última vez: </b><small class="modificado"></small></small><br>
+                <small class="text-muted pull-right"><b>Creado: </b><small class="creado"></small></small>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancelar_actualizar_producto" style="margin-right: 10px;" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-primary actualizar_producto">ACTUALIZAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<script type="module" src="app/productos.js"></script>
+<script type="text/javascript">
+ $('.configuraciones,.productos').addClass('active')
+</script>

@@ -1,0 +1,159 @@
+<style type="text/css">
+  .btn.active, .open>.btn.dropdown-toggle, .show>.btn.dropdown-toggle, .btn.btn-default:active, .btn.btn-default.active, .open>.btn.btn-default.dropdown-toggle, .show>.btn.btn-default.dropdown-toggle {
+    color: #c9c9c9 !important;
+    background-color: transparent !important;
+  }
+  .bootstrap-select{
+    margin-top: -11px !important;
+  }
+  .filter-option-inner{
+    margin-left: -27px;
+  }
+  .bootstrap-select .dropdown-toggle:focus {
+    outline: none !important;
+  }
+  .dropdown-item.active, .dropdown-item:active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #2196f3;
+  }
+</style>
+<div class="main main-raised" style="box-shadow: none;background: transparent;">
+  <div class="section section-basic" style="margin-top: 84px;">
+    <div class="container">
+      <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+          <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <span>Lista de tamaños productos</span>
+              <button class="btn btn-primary pull-right registrar_tamano" data-toggle="modal" data-target="#ActualizarTamano" style="margin-top: -9px;margin-bottom: -11px;margin-right: -6px;">Nuevo tamaño producto</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered tabla_tamanos" id="tabla_tamanos" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Costo</th>
+                <th>Precio</th>
+                <th>% Utilidad</th>
+                <th>Estado</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ActualizarTamano" tabindex="-1" role="dialog" aria-labelledby="ActualizarTamanoLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title titulo_tamano" id="ActualizarTamanoLabel"><b>Registrar tamaño producto</b></h5>
+        <button type="button" class="close cerrar_crear_tamano" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div> 
+      <div class="modal-body">
+        <form onsubmit="return false" autocomplete="off" id="FrmActualizarTamano" class="FrmActualizarTamano">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="nombre"><spam class="nombre_ alertaError">Nombre *</spam></label>
+                <input type="text" id="nombre"  name="nombre" class="form-control campo">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="costo"><spam class="costo_ alertaError">Costo *<spam></label>
+                <input type="number" id="costo" name="costo" class="form-control campo">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <label for="precio"><spam class="precio_ alertaError">Precio *<spam></label>
+                <input type="number" id="precio" name="precio" class="form-control campo">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group"> 
+                <label for="observacion">Observación</label>
+                <textarea class="form-control" id="observacion" name="observacion" rows="1"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="estado" name="estado" checked>
+                    Estado
+                    <span class="form-check-sign">
+                        <span class="check"></span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group creado_modificado pull-right" style="margin-bottom: 0px;">
+                <small class="text-muted pull-right"><b>Modificado por última vez: </b><small class="modificado"></small></small><br>
+                <small class="text-muted pull-right"><b>Creado: </b><small class="creado"></small></small>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancelar_actualizar_tamano" style="margin-right: 10px;" data-dismiss="modal">CANCELAR</button>
+        <div class="datos_tamano_llenar_btn_actualizar">
+          <button type="button" class="btn btn-primary actualizar_tamano">ACTUALIZAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="Eliminartamano" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eEliminartamanolLabel"><strong>Eliminación de tamano producto</strong></h5>
+        <button type="button" class="close cerrar_modal_tamano" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="return false" autocomplete="off" id="FrmActualizarTamano">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <span>¿Desea eliminar este tamano?.<br>¡Si lo haces ya no podrás recuperarlo!.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancelar_eliminar_tamano" style="margin-right: 10px;" data-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-danger eliminar_tamano">ELIMINAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module" src="app/tamanos.js"></script>
+<script type="text/javascript">
+  $('.configuraciones,.tamanos').addClass('active')
+</script>
