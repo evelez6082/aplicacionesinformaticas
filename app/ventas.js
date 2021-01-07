@@ -666,36 +666,49 @@ function construirTicket(ticketDatos,data){
 
   ticketDatos.forEach(data=>{
     filas = filas + `
-      <div style="display: flex;flex-direction: row;max-width: 35%;">
-        <small>${data.tipo_producto == "personalizado" ? '('+data.tamanoTexto+" <br>"+data.nombre.slice(0,-11)+'</span>'+').' : data.nombre}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.cantidad}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Number(data.precio).toFixed(2)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.subTotal}</small>
-      </div>`;
+
+  <tr style="text-align: center;">
+       
+     <td colspan="5" style="text-align: left;"> <small>${data.tipo_producto == "personalizado" ? '('+data.tamanoTexto+" <br>"+data.nombre.slice(0,-11)+').' : data.nombre}</small>
+     <td colspan="1">${data.cantidad}</td>
+     <td colspan="2">${Number(data.precio).toFixed(2)}</td>
+     <td colspan="3">${data.subTotal}</td>
+    
+   </tr>`;
   })  
 
   let ticket = `
+
 <section>
-<div style="font-size:20px; margin-top:-15px">
-    <span>ROLL FACTORY ICE CREAM</span><br>
-    <span>GEMA MICHELLE ALIATIS SUÁREZ</span><br>
-    <span>RUC/CI: 1308307790001</span><br> 
-    <span>DIRECCIÓN: PLAZA LA QUADRA L. #14</span><br>
-    <span>TELEFONO: 0968330214</span><br>
-    -------------------------------------<br>
-    <span>VENTA #: ${data.numero_venta}</span><br>
-    <span>FECHA: ${data.fecha}</span><br>
-    <span>CLIENTE: ${data.cliente}</span><br>
-    <span>VENDEDOR: ${data.vendedor}</span><br><br>
- </div>
- <div style="font-size:20px">
-  <p>-------------------------------------</p>
-  <span>
-    Producto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    Cant&nbsp;&nbsp;&nbsp;
-    Precio&nbsp;&nbsp;&nbsp;
-    Total&nbsp;&nbsp;&nbsp;
-  </span>
-  ${filas}
-  <p>-------------------------------------</p>
+
+<table style="width:100%; font-size:14px;">
+<div style="text-align: center;">
+<span><b>ROLL FACTORY ICE CREAM</b></span><br>
+<span>MANTA - ECUADOR</span><br>
+<span>DENIS PONCE MOREIRA</span><br>
+<span>RUC: 1314207349001</span><br> 
+<span>AV. FLAVIO REYES, FRENTE A MANICENTRO</span><br>
+<span>0969934490</span>
 </div>
+<hr>
+<div style="text-align: left;">
+<span>VENTA #: ${data.numero_venta}</span><br>
+<span>FECHA: ${data.fecha}</span><br>
+<span>CLIENTE: ${data.cliente}</span><br>
+<span>VENDEDOR: ${data.vendedor}</span><br>
+</div>
+<hr>  
+  
+  <tr>
+    <th colspan="5" style="text-align: left;">Producto</th>
+    <th colspan="1">Cantidad</th>
+    <th colspan="2">Precio</th>
+    <th colspan="3">Total</th>
+  </tr> 
+
+  ${filas}
+ 
+
 <div style="margin-bottom:20px">
   <small><b style="text-align: right;">SUBTOTAL: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${total}</small><br>
   <small><b style="text-align: right;">IVA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>$ 00.00</small><br>
