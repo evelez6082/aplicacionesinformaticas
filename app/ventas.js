@@ -709,19 +709,74 @@ function construirTicket(ticketDatos,data){
   ${filas}
  
 
-<div style="margin-bottom:20px">
-  <small><b style="text-align: right;">SUBTOTAL: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${total}</small><br>
-  <small><b style="text-align: right;">IVA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>$ 00.00</small><br>
-  <small><b style="text-align: right;">TOTAL: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${total}</small><br>
-  <small><b style="text-align: right;">FORMA DE PAGO: </b>${data.forma_pago}</small><br>
-  <small><b style="text-align: right;">ENTREGADO: </b>$ ${Number(query("#pago").value).toFixed(2)}</small><br>
-  <small><b style="text-align: right;">CAMBIO: </b>${(Number(query(".pago").value) - Number(total.replace("$",""))).toFixed(2)}</small><br><br>
-</div><br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
+    <table style="width:100%; font-size:14px;">
+         <hr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>SUBTOTAL</b></td>
+       <td colspan="4" style="text-align: right;">${total}</td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>IVA</b></td>
+       <td colspan="4" style="text-align: right;">$ 00.00</td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>TOTAL</b></td>
+       <td colspan="4" style="text-align: right;">${total}</td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>FORMA DE PAGO</b></td>
+       <td colspan="4" style="text-align: right;">${data.forma_pago}</td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>ENTREGADO</b></td>
+       <td colspan="4" style="text-align: right;">$ ${Number(query("#pago").value).toFixed(2)}</td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>CAMBIO</b></td>
+       <td colspan="4" style="text-align: right;">${(Number(query(".pago").value) - Number(total.replace("$",""))).toFixed(2)}</td>
+    </tr>
+      
+  </table>  
+  <br>
+    <table style="width:100%; font-size:14px;">
+      <tr>
+        <td colspan="12" style="text-align: center;">
+          Gracias por su compra
+        </td>
+    </tr>
+    <tr>
+       <td colspan="12" style="text-align: center;">
+          Roll Factory
+        </td>
+    </tr>
+  </table>  
 </section>`;
+
+//  <div style="margin-bottom:20px">
+//   <small><b style="text-align: right;">SUBTOTAL: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> ${total}</small><br>
+//   <small><b style="text-align: right;">IVA:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>$ 00.00</small><br>
+//   <small><b style="text-align: right;">TOTAL: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${total}</small><br>
+//   <small><b style="text-align: right;">FORMA DE PAGO: </b>${data.forma_pago}</small><br>
+//   <small><b style="text-align: right;">ENTREGADO: </b>$ ${Number(query("#pago").value).toFixed(2)}</small><br>
+//   <small><b style="text-align: right;">CAMBIO: </b>${(Number(query(".pago").value) - Number(total.replace("$",""))).toFixed(2)}</small><br><br>
+// </div><br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.
 
   $.print(ticket)
 }
  
+
   
 function recogerDatosDelaVenta(cantidadFilasVentas){
 
