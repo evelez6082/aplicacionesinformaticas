@@ -1,4 +1,121 @@
+
 <!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    
+<?php
+$datos_cliente = array (
+"producto"=>"Vainilla", 
+"cantidad"=>"3",
+"precio"=>"200013", 
+"total"=>"Donostia-San Sebasti�n", 
+);
+
+
+//Datos de la factura
+$datos_factura = array (
+array ("Vainilla", 1, 0.50, 0.50), 
+array ("Chocolate", 3, 0.50, 4.50), 
+array ("Chicle",1, 0.50, 0.50),
+array ("Manjar", 4, 0.50, 2.00),
+);
+?>
+ 
+    <table style="width:100%; font-size:14px;">
+    <div style="text-align: center;">
+    <span><b>ROLL FACTORY ICE CREAM</b></span><br>
+    <span>MANTA - ECUADOR</span><br>
+    <span>DENIS PONCE MOREIRA</span><br>
+    <span>RUC: 1314207349001</span><br> 
+    <span>AV. FLAVIO REYES, FRENTE A MANICENTRO</span><br>
+    <span>0969934490</span>
+    </div>
+    <hr>
+    <div style="text-align: left;">
+    <span>VENTA #: ${data.numero_venta}</span><br>
+    <span>FECHA: ${data.fecha}</span><br>
+    <span>CLIENTE: ${data.cliente}</span><br>
+    <span>VENDEDOR: ${data.vendedor}</span><br>
+    </div>
+    <hr>      
+
+<!-- Detalle factura -->
+  
+  <tr>
+    <th colspan="5" style="text-align: left;">Producto</th>
+    <th colspan="1">Cantidad</th>
+    <th colspan="2">Precio</th>
+    <th colspan="3">Total</th>
+  </tr> 
+     <?php
+            $subtotal = 0;
+            foreach ($datos_factura as $producto) {
+                $totalProducto = $producto[1] * $producto[2];
+                $subtotal += $totalProducto;
+     ?>
+ 
+              <tr style="text-align: center;">
+              <td colspan="5" style="text-align: left;"><?php echo $producto[0] ?></td>
+              <td colspan="1"><?php echo $producto[1] ?></td>
+              <td colspan="2">$ <?php echo number_format($producto[2], 2) ?></td>
+              <td colspan="3">$ <?php echo number_format($totalProducto, 2) ?></td>
+            </tr>
+             <?php } ?>
+    </table>  
+
+    <table style="width:100%; font-size:14px;">
+         <hr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>SUBTOTAL</b></td>
+       <td colspan="4" style="text-align: right;">$ <?php echo number_format($subtotal, 2) ?></td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>IVA</b></td>
+       <td colspan="4" style="text-align: right;">$ <?php echo number_format(0, 2) ?></td>
+    </tr>
+     <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>TOTAL</b></td>
+       <td colspan="4" style="text-align: right;">$ <?php echo number_format($subtotal, 2) ?></td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>ENTREGADO</b></td>
+       <td colspan="4" style="text-align: right;">$ <?php echo number_format(20, 2) ?></td>
+    </tr>
+    <tr>
+       <td></td>
+       <td></td>
+       <td colspan="4" style="text-align: right;"><b>CAMBIO</b></td>
+       <td colspan="4" style="text-align: right;">$ <?php echo number_format(0, 2) ?></td>
+    </tr>
+      
+  </table>  
+  <br>
+    <table style="width:100%; font-size:14px;">
+      <tr>
+        <td colspan="12" style="text-align: center;">
+          Gracias por su compra
+        </td>
+    </tr>
+    <tr>
+       <td colspan="12" style="text-align: center;">
+          Roll Factory
+        </td>
+    </tr>
+  </table>  
+</body>
+</html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -46,4 +163,4 @@
     <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roll Factory</span>
 </div>
 </body>
-</html>
+</html> -->
