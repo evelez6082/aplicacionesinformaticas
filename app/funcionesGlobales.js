@@ -1,5 +1,4 @@
 
-
 function alerta(mensaje,tipo){
   Swal.fire({
     type: tipo,

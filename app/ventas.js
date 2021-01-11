@@ -667,7 +667,7 @@ function construirTicket(ticketDatos,data){
   ticketDatos.forEach(data=>{
     filas = filas + `
 
-  <tr style="text-align: center;">
+  <tr style="text-align: center; font-size:13px;">
        
      <td colspan="5" style="text-align: left;"> <small>${data.tipo_producto == "personalizado" ? '('+data.tamanoTexto+" <br>"+data.nombre.slice(0,-11)+').' : data.nombre}</small>
      <td colspan="1">${data.cantidad}</td>
@@ -691,7 +691,7 @@ function construirTicket(ticketDatos,data){
 <span>0969934490</span>
 </div>
 <hr>
-<div style="text-align: left;">
+<div style="text-align: left; font-size:12px;">
 <span>VENTA #: ${data.numero_venta}</span><br>
 <span>FECHA: ${data.fecha}</span><br>
 <span>CLIENTE: ${data.cliente}</span><br>
