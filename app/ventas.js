@@ -683,12 +683,12 @@ function construirTicket(ticketDatos,data){
 
 <table style="width:100%; font-size:14px;">
 <div style="text-align: center;">
-<span><b>ROLL FACTORY ICE CREAM</b></span><br>
-<span>MANTA - ECUADOR</span><br>
-<span>DENIS PONCE MOREIRA</span><br>
-<span>RUC: 1314207349001</span><br> 
-<span>AV. FLAVIO REYES, FRENTE A MANICENTRO</span><br>
-<span>0969934490</span>
+<span><b>FCI ICE CREAM</b></span><br>
+<span>PORTOVIEJO - ECUADOR</span><br>
+<span>PROYECTO DE FIN DE CICLO</span><br>
+<span>MATERIA: APLICACIONES INFORMÁTICAS</span><br> 
+<span>DOCENTE: TATIANA COBEÑA</span><br>
+<span>INVENTARIO HELADERÍA</span>
 </div>
 <hr>
 <div style="text-align: left; font-size:12px;">
@@ -758,7 +758,7 @@ function construirTicket(ticketDatos,data){
     </tr>
     <tr>
        <td colspan="12" style="text-align: center;">
-          Roll Factory
+          Aplicaciones Informáticas
         </td>
     </tr>
   </table>  
